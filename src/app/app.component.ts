@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { PaisesService } from './services/paises.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'interceptores';
+
+  constructor( private paisesService: PaisesService ) {
+
+    this.paisesService.getPaises().subscribe( resp => {
+      console.log( resp );
+    });
+
+
+
+  }
 }
